@@ -10,11 +10,11 @@ import {Todo} from '../Todo';
 
 export class TodosComponent implements OnInit {
   todolist: Todo[];
-  
+
   constructor(private _todoService: TodoService){
-    
+
   }
-  
+
   ngOnInit(){
     this.todolist = [];
     this._todoService.getTodos()
@@ -30,7 +30,7 @@ export class TodosComponent implements OnInit {
       text: todoText.value,
       isCompleted: false
     };
-    
+
     result = this._todoService.saveTodo(newTodo);
     result.subscribe(x => {
       this.todolist.push(newTodo);
@@ -51,7 +51,7 @@ updateStatus(todo){
     text: todo.text,
     isCompleted: !todo.isCompleted
   };
-  
+
   this._todoService.updateTodo(_todo)
     .subscribe(data => {
       todo.isCompleted = !todo.isCompleted;
@@ -65,7 +65,7 @@ updateTodoText(event, todo){
         text: todo.text,
         isCompleted: todo.isCompleted
       };
-      
+
       this._todoService.updateTodo(_todo)
         .subscribe(data => {
           this.setEditState(todo, false);
@@ -74,7 +74,7 @@ updateTodoText(event, todo){
 }
 deleteTodo(todo){
   var todolist = this.todolist;
-  
+
   this._todoService.deleteTodo(todo._id)
     .subscribe(data => {
       if(data.n == 1){
