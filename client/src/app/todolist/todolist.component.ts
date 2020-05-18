@@ -3,9 +3,10 @@ import {TodoService} from './todo.service';
 import {Todo} from './Todo';
 
 @Component({
-  moduleId: module.id,
+  // moduleId: module.id,
   selector: 'todolist',
-  templateUrl: 'todolist.component.html'
+  templateUrl: 'todolist.component.html',
+  providers:[TodoService]
 })
 
 export class TodosComponent implements OnInit {
@@ -78,11 +79,11 @@ deleteTodo(todo){
   this._todoService.deleteTodo(todo._id)
     .subscribe(data => {
       if(data.n == 1){
-        for(var i = 0; i < todolist.length; i++){
+        /*for(var i = 0; i < todolist.length; i++){
           if(todolist[i]._id == todo._id){
             todolist.splice(i, 1);
           }
-        }
+        }*/
       }
     })
 }
