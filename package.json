@@ -1,19 +1,18 @@
 {
-  "name": "todolistapp",
+  "name": "mytasklist",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple task manager",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "xolani tinzi",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "@angular/http": "^7.2.16",
     "body-parser": "^1.15.2",
     "cors": "^2.8.4",
     "ejs": "^2.5.2",
     "express": "^4.14.0",
-    "mongojs": "^3.1.0"
+    "mongojs": "^2.4.0"
   }
 }

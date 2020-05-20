@@ -1,26 +1,31 @@
-var express = require('express');
-var path = require('path');
-var bodyParser = require('body-parser');
+var express = require('express')
+var path = require('path')
+var bodyParser = require('body-parser')
 
-var todolist = require('./routes/todolist');
-var cors = require("cors")
+var index = require('./routes/index')
+var tasks = require('./routes/tasks')
+var cors = require('cors')
 
-var port =  3000;
+var port = 3000
 
-var app = express();
+var app = express()
 app.use(cors())
 
-// View Engine
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
+//View Engine
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs')
+app.engine('html', require('ejs').renderFile)
 
-app.use(express.static(path.join(__dirname, 'client')));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+// Set Static Folder
+app.use(express.static(path.join(__dirname, 'client')))
 
-app.use('/api', todolist);
+// Body Parser MW
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
-app.listen(port, function(){
-    console.log('Server started on port ' + port);
-});
+app.use('/', index)
+app.use('/api', tasks)
+
+app.listen(port, function() {
+  console.log('Server started on port ' + port)
+})
