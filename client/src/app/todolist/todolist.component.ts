@@ -31,8 +31,6 @@ export class TodolistComponent implements OnInit {
     const newTodo: any = { title: title }
     // const newTodo: Todo = { title } as Todo
     this.todoService.addTodo(newTodo).subscribe(todo => this.todolist.push(todo))
-    this.todoService.saveTodo(newTodo)
-
   }
 
   delete(todo: Todo): void {

@@ -1,5 +1,5 @@
 export interface Todo {
-  _id: number;
+  _id: number
   title: String;
   isCompleted: boolean;
 
