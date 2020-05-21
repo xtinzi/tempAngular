@@ -3,7 +3,7 @@ var path = require('path')
 var bodyParser = require('body-parser')
 
 var index = require('./routes/index')
-var tasks = require('./routes/tasks')
+var todolist = require('./routes/todolist')
 var cors = require('cors')
 
 var port = 3000
@@ -24,7 +24,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/', index)
-app.use('/api', tasks)
+app.use('/api', todolist)
 
 app.listen(port, function() {
   console.log('Server started on port ' + port)

@@ -1,0 +1,24 @@
+<form class="form" (submit)="add(todoTitle.value); todoTitle.value=''">
+    <div class="form-group">
+        <input #todoTitle class="form-control" placeholder="Todo Name" />
+    </div>
+    <input type="submit" value="SUBMIT" class="btn btn-success btn-lg btn-block" />
+</form>
+
+<table class="table">
+    <tr *ngFor="let todo of todolist">
+        <td class="text-left ">
+            <a (click)="edit(todo)">
+                <span *ngIf="todo!==editTodo">{{todo.title}}</span>
+                <input *ngIf="todo===editTodo" [(ngModel)]="todo.title" (blur)="update()" (keyup.enter)="update()">
+            </a>
+        </td>
+        <td class="text-right">
+            <button class="btn btn-danger" title="delete todo" (click)="delete(todo)">Delete</button>
+        </td>
+    </tr>
+</table>
+
+<div class="card card-body bg-light text-center">
+    <span class="small">* click on item to edit and just click anywhere to update</span>
+</div>
