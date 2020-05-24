@@ -32,7 +32,7 @@ router.get('/todo/:id', function(req, res, next){
 // Save Todo
 router.post('/todo', function(req, res, next){
     var todo = req.body;
-    if(!todo.text || !(todo.isCompleted + '')){
+    if(!todo.title || !(todo.isCompleted + '')){
         res.status(400);
         res.json({
             "error": "Invalid Data"
@@ -57,8 +57,8 @@ router.put('/todo/:id', function(req, res, next){
        updObj.isCompleted = todo.isCompleted;
     }
     
-    if(todo.text){
-        updObj.text = todo.text;
+    if(todo.title){
+        updObj.title = todo.title;
     }
     
     if(!updObj){
