@@ -6,7 +6,7 @@ var index = require('./routes/index')
 var todolist = require('./routes/todolist')
 var cors = require('cors')
 
-var port = 3000
+var port =  process.env.PORT || 3000;
 
 var app = express()
 app.use(cors())
@@ -17,7 +17,7 @@ app.set('view engine', 'ejs')
 app.engine('html', require('ejs').renderFile)
 
 // Set Static Folder
-app.use(express.static(path.join(__dirname, 'client')))
+app.use(express.static(path.join(__dirname, 'client/dist/client')))
 
 // Body Parser MW
 app.use(bodyParser.json())
