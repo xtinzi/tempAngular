@@ -1,21 +1,23 @@
 {
-  "name": "mytodolist",
+  "name": "todolistapp",
   "version": "1.0.0",
-  "description": "Simple todo manager",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-watch": "nodemon server.js",
     "heroku-postbuild": "cd client && npm uninstall -g @angular/cli && npm cache clean --force && npm install -g @angular/cli@7.1.4 && npm install -g @angular/cli @angular-devkit/build-angular && npm install && npm run build"
+
   },
-  "author": "",
+  "author": "xolani tinzi",
   "license": "ISC",
   "dependencies": {
+    "@angular/http": "^7.2.16",
     "body-parser": "^1.15.2",
     "cors": "^2.8.4",
     "ejs": "^2.5.2",
     "express": "^4.14.0",
-    "mongojs": "^2.4.0"
+    "mongojs": "^3.1.0"
   },
   "engines": {
     "node": "13.12.0",
